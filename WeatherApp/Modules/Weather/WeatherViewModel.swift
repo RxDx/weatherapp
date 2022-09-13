@@ -28,9 +28,9 @@ class WeatherViewModel {
 
     // MARK: - Methods
 
-    func getWeather() {
+    func getWeather(lat: Double = 34.0194704, lon: Double = -118.491227) {
         delegate?.isLoading = true
-        service.getWeather(lat: 34.0194704, lon: -118.491227) { result in
+        service.getWeather(lat: lat, lon: lon) { result in
             DispatchQueue.main.async { [weak self] in
                 dump(result)
                 self?.delegate?.isLoading = false

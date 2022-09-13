@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B17E60328D12C660065A9D6 /* WeatherViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B17E60228D12C660065A9D6 /* WeatherViewModelTests.swift */; };
 		5B72FA8A28CFE8FA0029C3C1 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B72FA8928CFE8FA0029C3C1 /* WeatherViewController.swift */; };
 		5B72FA8C28CFE9B50029C3C1 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B72FA8B28CFE9B50029C3C1 /* WeatherView.swift */; };
 		5B72FA9128CFEB600029C3C1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B72FA9028CFEB600029C3C1 /* Colors.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B17E60228D12C660065A9D6 /* WeatherViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModelTests.swift; sourceTree = "<group>"; };
 		5B72FA8928CFE8FA0029C3C1 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		5B72FA8B28CFE9B50029C3C1 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		5B72FA9028CFEB600029C3C1 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -92,6 +94,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B17E60028D12C400065A9D6 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				5B17E60128D12C490065A9D6 /* Weather */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		5B17E60128D12C490065A9D6 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				5B17E60228D12C660065A9D6 /* WeatherViewModelTests.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
 		5B72FA8728CFE8990029C3C1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +211,7 @@
 		5BF76EEF28CFE520001E68B4 /* WeatherAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				5B17E60028D12C400065A9D6 /* Modules */,
 				5BF76EF028CFE520001E68B4 /* WeatherAppTests.swift */,
 			);
 			path = WeatherAppTests;
@@ -357,6 +376,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BF76EF128CFE520001E68B4 /* WeatherAppTests.swift in Sources */,
+				5B17E60328D12C660065A9D6 /* WeatherViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
