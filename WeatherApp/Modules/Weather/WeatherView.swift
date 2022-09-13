@@ -11,7 +11,7 @@ class WeatherView: UIView {
     
     // MARK: - Properties
     
-    private lazy var titleLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.textColor = Colors.fontPrimary
@@ -19,7 +19,7 @@ class WeatherView: UIView {
         return view
     }()
     
-    private lazy var weatherImage: UIImageView = {
+    private lazy var weatherImageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -79,8 +79,8 @@ class WeatherView: UIView {
     
     private lazy var containerView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [
-            titleLabel,
-            weatherImage,
+            nameLabel,
+            weatherImageView,
             temperatureLabel,
             conditionLabel,
             lowHightContainerView,
@@ -116,4 +116,31 @@ class WeatherView: UIView {
             containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
         ])
     }
+
+    func showError(message: String) {
+        [nameLabel, temperatureLabel, lowLabel, highLabel, windLabel].forEach { label in
+            label.text = ""
+        }
+        weatherImageView.image = UIImage()
+        conditionLabel.text = message
+    }
+
+    func show(weather: Weather) {
+        nameLabel.text = weather.name
+        weatherImageView.loadFrom(url: weather.weather.first?.iconUrl ?? "")
+        temperatureLabel.text = "\(Int(weather.main.temp.fromKelvinToFahrenheit()))°"
+        conditionLabel.text = weather.weather.first?.main ?? "unknown"
+        lowLabel.text = "Low: \(Int(weather.main.tempMin.fromKelvinToFahrenheit()))°"
+        highLabel.text = "High: \(Int(weather.main.tempMax.fromKelvinToFahrenheit()))°"
+        windLabel.text = "Wind: \(weather.wind.speed) (\(weather.wind.deg))"
+    }
+    
+    override func showLoading() {
+        super.showLoading()
+        [nameLabel, temperatureLabel, conditionLabel, lowLabel, highLabel, windLabel].forEach { label in
+            label.text = ""
+        }
+        weatherImageView.image = UIImage()
+    }
+
 }
